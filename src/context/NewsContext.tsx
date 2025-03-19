@@ -41,11 +41,16 @@ export const NewsProvider = ({ children }: { children: ReactNode }) => {
         let response;
         const defaultQuery = "technology";
 
+        const headers = {
+          "User-Agent": "Mozilla/5.0", // Add User-Agent header
+        };
+
         if (selectedApi === "newsapi") {
           response = await axios.get(
             `https://newsapi.org/v2/everything?q=${
               filters.keyword || defaultQuery
-            }&apiKey=${API_KEYS.newsapi}`
+            }&apiKey=${API_KEYS.newsapi}`,
+            { headers }
           );
           setArticles(
             response.data.articles.map((a: any) => ({
@@ -59,7 +64,8 @@ export const NewsProvider = ({ children }: { children: ReactNode }) => {
           response = await axios.get(
             `https://content.guardianapis.com/search?q=${
               filters.keyword || defaultQuery
-            }&api-key=${API_KEYS.guardian}`
+            }&api-key=${API_KEYS.guardian}`,
+            { headers }
           );
           setArticles(
             response.data.response.results.map((a: any) => ({
@@ -73,7 +79,8 @@ export const NewsProvider = ({ children }: { children: ReactNode }) => {
           response = await axios.get(
             `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${
               filters.keyword || defaultQuery
-            }&api-key=${API_KEYS.nyt}`
+            }&api-key=${API_KEYS.nyt}`,
+            { headers }
           );
           setArticles(
             response.data.response.docs.map((a: any) => ({
