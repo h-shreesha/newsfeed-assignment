@@ -5,6 +5,7 @@ const API_KEYS = {
   newsapi: import.meta.env.VITE_NEWSAPI_KEY,
   guardian: import.meta.env.VITE_GUARDIAN_KEY,
   nyt: import.meta.env.VITE_NYT_KEY,
+  gnews: import.meta.env.VITE_GNEWS_KEY,
 };
 
 console.log("News API Key:", import.meta.env.VITE_NEWSAPI_KEY);
@@ -51,17 +52,17 @@ export const NewsProvider = ({ children }: { children: ReactNode }) => {
 
         if (selectedApi === "newsapi") {
           response = await axios.get(
-            `${API_PROXY}https://newsapi.org/v2/everything?q=${
+            `https://gnews.io/api/v4/search?q=${
               filters.keyword || defaultQuery
-            }&apiKey=${API_KEYS.newsapi}`,
-            { headers }
+            }&token=${API_KEYS.gnews}`
           );
+          console.log(response.data);
           setArticles(
             response.data.articles.map((a: any) => ({
               title: a.title,
               description: a.description,
               url: a.url,
-              source: "NewsAPI",
+              source: "GNews",
             }))
           );
         } else if (selectedApi === "guardian") {
