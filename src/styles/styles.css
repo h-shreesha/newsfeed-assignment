@@ -1,0 +1,193 @@
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+.search-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap; 
+}
+
+.search-container input {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  min-width: 200px; 
+}
+
+.search-container button {
+  padding: 10px 15px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap; 
+}
+
+.search-container button:hover {
+  background-color: #0056b3;
+}
+
+
+.api-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap; 
+}
+
+.api-buttons button {
+  flex: 1;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s;
+  border-radius: 4px;
+  min-width: 100px;
+}
+
+.api-buttons button.active {
+  background: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.api-buttons button:hover {
+  background: #0056b3;
+  color: white;
+}
+
+/* News List */
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* News Card */
+.news-card {
+  background: white;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.news-card h3 {
+  margin: 0 0 10px;
+}
+
+.news-card a {
+  color: blue;
+  text-decoration: none;
+}
+
+.source {
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+  color: gray;
+}
+
+.suggestions {
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  z-index: 10;
+  width: 100%;
+  max-width: 500px;
+}
+
+.suggestions li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestions li.active {
+  background: #f0f0f0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+    max-width: 100%;
+  }
+
+  .search-container {
+    flex-direction: column;
+  }
+
+  .search-container input {
+    width: 100%;
+  }
+
+  .search-container button {
+    width: 100%;
+  }
+
+  .api-buttons {
+    justify-content: center;
+  }
+
+  .api-buttons button {
+    flex: 1;
+    min-width: auto;
+    font-size: 12px;
+  }
+
+  .news-card {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-container {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .search-container input,
+  .search-container button {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .api-buttons {
+    flex-direction: column;
+  }
+
+  .api-buttons button {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .news-card {
+    padding: 10px;
+  }
+
+  .suggestions {
+    max-width: 100%;
+  }
+}
