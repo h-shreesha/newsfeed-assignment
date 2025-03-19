@@ -1,54 +1,68 @@
-# React + TypeScript + Vite
+# News App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a news application that fetches the latest news from various APIs and displays them based on a search term. The app provides options to choose different news APIs, such as NewsAPI, The Guardian, New York Times etc.
 
-Currently, two official plugins are available:
+## Live Link
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+You can view the live app here:  
+[Live App Link](https://newsapp-latest-assessment.netlify.app/)
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Fetches and displays news articles based on the search keyword.
+- Allows users to select different news sources (NewsAPI, The Guardian, NY Times).
+- Built with React, TypeScript, and Axios for fetching data.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Tech Stack
+
+- **React.js** - JavaScript library for building user interfaces.
+- **TypeScript** - Superset of JavaScript for static typing.
+- **Axios** - HTTP client for making requests.
+- **Netlify** - Deployment platform.
+- **CSS** (or SCSS) - Styling the application.
+
+## Setup Instructions
+
+Follow these steps to set up the project locally.
+
+### 1. Clone the Repository
+
+First, clone the repository to your local machine:
+
+```bash
+git clone https://github.com/yourusername/news-app.git
+cd news-app
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 3. Add Environment Variables
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+To run the application locally, you'll need to set up the environment variables for your API keys.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+Create a .env file in the root of the project and add the following:
+
+```bash
+REACT_APP_NEWSAPI_KEY=your-newsapi-key
+REACT_APP_GUARDIAN_KEY=your-guardian-api-key
+REACT_APP_NYT_KEY=your-nyt-api-key
 ```
+
+Replace `your-newsapi-key`, `your-guardian-api-key`, and `your-nyt-api-key` with the actual API keys from the respective services.
+
+### 4. Run the Development Server
+
+Now that everything is set up, start the development server:
+
+```bash
+npm start
+```
+
+### 5. Deployment
+
+This app is deployed using Netlify. After making changes or updates, you can push them to your repository, and Netlify will automatically deploy the latest version.
+
+To deploy on Netlify manually:
+
+- Push your changes to your Git repository (GitHub, GitLab, etc.).
+- Connect the repository to Netlify via the Netlify dashboard.
+- Netlify will automatically build and deploy your app after each push.
