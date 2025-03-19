@@ -42,7 +42,9 @@ export const NewsProvider = ({ children }: { children: ReactNode }) => {
         const defaultQuery = "technology";
 
         const headers = {
-          "User-Agent": "Mozilla/5.0", // Add User-Agent header
+          "User-Agent": "Mozilla/5.0", // Some APIs require this
+          Accept: "application/json", // Ensures JSON response
+          "Upgrade-Insecure-Requests": "1", // Helps enforce HTTPS
         };
 
         if (selectedApi === "newsapi") {
