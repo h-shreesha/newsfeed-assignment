@@ -1,13 +1,13 @@
 import { createContext, useState, useEffect, ReactNode } from "react";
 import axios from "axios";
 
-
 const API_KEYS = {
   newsapi: import.meta.env.VITE_NEWSAPI_KEY,
   guardian: import.meta.env.VITE_GUARDIAN_KEY,
   nyt: import.meta.env.VITE_NYT_KEY,
 };
 
+console.log("News API Key:", import.meta.env.VITE_NEWSAPI_KEY);
 interface Article {
   title: string;
   description: string;
