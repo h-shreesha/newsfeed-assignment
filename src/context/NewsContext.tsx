@@ -28,6 +28,8 @@ export const NewsContext = createContext<NewsContextType | undefined>(
   undefined
 );
 
+const API_PROXY = "https://cors-anywhere.herokuapp.com/";
+
 export const NewsProvider = ({ children }: { children: ReactNode }) => {
   const [articles, setArticles] = useState<Article[]>([]);
   const [filters, setFilters] = useState({ keyword: "" });
@@ -49,7 +51,7 @@ export const NewsProvider = ({ children }: { children: ReactNode }) => {
 
         if (selectedApi === "newsapi") {
           response = await axios.get(
-            `https://newsapi.org/v2/everything?q=${
+            `${API_PROXY}https://newsapi.org/v2/everything?q=${
               filters.keyword || defaultQuery
             }&apiKey=${API_KEYS.newsapi}`,
             { headers }
@@ -79,7 +81,7 @@ export const NewsProvider = ({ children }: { children: ReactNode }) => {
           );
         } else if (selectedApi === "nyt") {
           response = await axios.get(
-            `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${
+            `${API_PROXY}https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${
               filters.keyword || defaultQuery
             }&api-key=${API_KEYS.nyt}`,
             { headers }
